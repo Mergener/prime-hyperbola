@@ -1,9 +1,14 @@
-cmake-build-*/
+# Binary files
 *.exe
 *.dll
 *.so
 *.a
 *.lib
+
+# IDE settings
+.idea
+
+# Build directories
 builds/*
 build/*
-.idea
+cmake-build-*/

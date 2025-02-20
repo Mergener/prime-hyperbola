@@ -1,8 +1,11 @@
-cmake_minimum_required(VERSION 3.24)
-project(primos_jayme)
+cmake_minimum_required(VERSION 3.10)
+project(primes_hyperbola)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(primos_jayme main.cpp)
+add_executable(primes_hyperbola main.cpp)
 
-set(CMAKE_CXX_FLAGS "-static-libstdc++ -static-libgcc --static")
+# Link statically on Windows.
+if (WIN32)
+    target_link_libraries(primes_hyperbola -static-libstdc++ -static-libgcc)
+endif()
