@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <chrono>
 #include <functional>
@@ -64,7 +63,7 @@ static Integer ceil_star(Integer x,
 static void compute_B(Integer m,
                       Integer n,
                       std::vector<bool>& out) {
-    Integer last_i = isqrt(m);
+    Integer last_i = floor_star(isqrt(m), 1);
 
     auto term = [=](Integer i, Integer j) {
         return i * (ceil_star(m, i) + j);
@@ -87,8 +86,8 @@ static void compute_B(Integer m,
 static void compute_C(Integer m,
                       Integer n,
                       std::vector<bool>& out) {
-    Integer last_i = isqrt(n) - isqrt(m);
-    Integer sfsm   = isqrt(m);
+    Integer last_i = floor_star(isqrt(n), 1) - floor_star(isqrt(m), 1);
+    Integer sfsm   = floor_star(isqrt(m), 1);
 
     auto term = [=](Integer i, Integer j) {
         return (sfsm + i) * (sfsm + i + j);
